@@ -3,7 +3,7 @@ apply plugin: 'application'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 
-mainClassName='com.jme3.test.Main'
+mainClassName = 'com.jme3.test.TestGltfLoading'
 
 repositories {
     //This is where jme3 dependencies are stored.
@@ -20,7 +20,7 @@ repositories {
 
 }
 
-ext.jmeVersion = '[3.2,)'
+ext.jmeVersion = '3.2.0-feature/gltf-loader-SNAPSHOT'
 
 project(":assets") {
     apply plugin: "java"
@@ -42,7 +42,7 @@ dependencies {
     compile "org.jmonkeyengine:jme3-core:$jmeVersion"
     compile "org.jmonkeyengine:jme3-desktop:$jmeVersion"
     compile "org.jmonkeyengine:jme3-lwjgl:$jmeVersion"
-
+    compile "org.jmonkeyengine:jme3-plugins:$jmeVersion"
     //Those are jme3 additional library uncomment the ones you need
     //compile "org.jmonkeyengine:jme3-android-native:$jmeVersion"
     //compile "org.jmonkeyengine:jme3-android:$jmeVersion"
@@ -71,24 +71,24 @@ task createDirs << {
 
     def pkg = 'mygame'
     def dirs = [
-        file("./src/main/java/$pkg"),
-        file("./src/main/resources"),
-        file("./assets/Interface"),
-        file("./assets/MatDefs"),
-        file("./assets/Materials"),
-        file("./assets/Models"),
-        file("./assets/Scenes"),
-        file("./assets/Shaders"),
-        file("./assets/Sounds"),
-        file("./assets/Textures"),
+            file("./src/main/java/$pkg"),
+            file("./src/main/resources"),
+            file("./assets/Interface"),
+            file("./assets/MatDefs"),
+            file("./assets/Materials"),
+            file("./assets/Models"),
+            file("./assets/Scenes"),
+            file("./assets/Shaders"),
+            file("./assets/Sounds"),
+            file("./assets/Textures"),
     ]
 
     dirs.each {
-        if( !it.exists() ) {
+        if (!it.exists()) {
             println "Creating " + it
             it.mkdirs()
         }
-        if( it.listFiles().length == 0 ) {
+        if (it.listFiles().length == 0) {
             def stub = new File(it, 'removeme.txt')
             println "Creating stub file to allow git checkin, file:$stub"
             stub.text = "Remove me when there are files here."

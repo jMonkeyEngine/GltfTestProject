@@ -54,7 +54,7 @@ public class TestGltfLoading extends SimpleApplication {
     Node probeNode;
     float time = 0;
     int assetIndex = 0;
-    boolean useAutoRotate = false;
+    boolean useAutoRotate = true;
     private final static String indentString = "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t";
     int duration = 2;
     boolean playAnim = true;
@@ -98,10 +98,10 @@ public class TestGltfLoading extends SimpleApplication {
 //        PointLight pl1 = new PointLight(new Vector3f(-5.0f, -5.0f, -5.0f), ColorRGBA.White.mult(0.5f), 50);
 //        rootNode.addLight(pl1);
 
-//        loadModel("Models/gltf/box/box.gltf", Vector3f.ZERO, 1);
-//        loadModel("Models/gltf/duck/Duck.gltf", new Vector3f(0, -1, 0), 1);
-//        loadModel("Models/gltf/damagedHelmet/damagedHelmet.gltf", Vector3f.ZERO, 1);
-//        loadModel("Models/gltf/hornet/scene.gltf", new Vector3f(0, -0.5f, 0), 0.4f);
+        loadModel("Models/gltf/box/box.gltf", Vector3f.ZERO, 1);
+        loadModel("Models/gltf/duck/Duck.gltf", new Vector3f(0, -1, 0), 1);
+        loadModel("Models/gltf/damagedHelmet/damagedHelmet.gltf", Vector3f.ZERO, 1);
+        loadModel("Models/gltf/hornet/scene.gltf", new Vector3f(0, -0.5f, 0), 0.4f);
 //        loadModel("Models/gltf/adamHead/adamHead.gltf", Vector3f.ZERO, 0.6f);
         //loadModel("Models/gltf/busterDrone/busterDrone.gltf", new Vector3f(0, 0f, 0), 0.8f);
         //loadModel("Models/gltf/animatedCube/AnimatedCube.gltf", Vector3f.ZERO, 0.5f);
@@ -109,7 +109,7 @@ public class TestGltfLoading extends SimpleApplication {
         //loadModel("Models/gltf/april_may/scene.gltf", new Vector3f(0, -1f, 0), 0.01f);
         //loadModel("Models/gltf/BrainStem/BrainStem.gltf", new Vector3f(0, -1, 0), 1f);
         //loadModel("Models/gltf/RiggedFigure/RiggedSimple.gltf", new Vector3f(0, -0.3f, 0), 0.2f);
-        loadModel("Models/gltf/RiggedFigure/RiggedFigure.gltf", new Vector3f(0, -0.3f, 0), 1f);
+//        loadModel("Models/gltf/RiggedFigure/RiggedFigure.gltf", new Vector3f(0, -0.3f, 0), 1f);
         //loadModel("Models/gltf/RiggedFigure/WalkingLady.gltf", new Vector3f(0, -0.f, 0), 1f);
         //loadModel("Models/Jaime/Jaime.j3o", new Vector3f(0, -1, 0), 1f);
 
@@ -136,7 +136,7 @@ public class TestGltfLoading extends SimpleApplication {
             }
         }, "autorotate");
 
-        // dumpScene(rootNode, 0);
+        dumpScene(rootNode, 0);
     }
 
     private SkeletonControl findSkeletonControl(Spatial s) {
@@ -165,11 +165,11 @@ public class TestGltfLoading extends SimpleApplication {
             playFirstAnim(s);
         }
 
-        SkeletonControl ctrl = findSkeletonControl(s);
-        if (ctrl == null) {
-            return;
-        }
-        getStateManager().getState(SkeletonDebugAppState.class).addSkeleton(ctrl, true);
+//        SkeletonControl ctrl = findSkeletonControl(s);
+//        if (ctrl == null) {
+//            return;
+//        }
+        //   getStateManager().getState(SkeletonDebugAppState.class).addSkeleton(ctrl, true);
 //        SkeletonDebugger skeletonDebug = new SkeletonDebugger("skeleton", sk);
 //        Material mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
 //        mat.getAdditionalRenderState().setWireframe(true);
