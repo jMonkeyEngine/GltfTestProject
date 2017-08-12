@@ -10,7 +10,7 @@ repositories {
     jcenter()
 
     //Uncomment this if you install local dependencies.
-    //mavenLocal()
+    mavenLocal()
 
     //Uncomment this if you use external dependencies
     //mavenCentral()
@@ -20,7 +20,7 @@ repositories {
 
 }
 
-ext.jmeVersion = '[3.2)'
+ext.jmeVersion = '[3.2,)'
 
 project(":assets") {
     apply plugin: "java"
